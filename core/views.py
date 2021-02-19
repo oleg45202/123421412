@@ -26,7 +26,6 @@ class GetBySymbolCompaniesView(View):
         return HttpResponse(CompaniesRanks().get_ranks_by_symbols(symbols), status=200)
 
 
-@csrf_exempt
 class UpdateCompanyView(View):
     def patch(self, request):
         company = json.loads(request.body)
