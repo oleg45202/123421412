@@ -4,10 +4,15 @@
   "repository": "https://github.com/",
   "logo": "https://redis.io/images/redis-white.png",
   "keywords": ["python", "py", "redis"],
-  "addons": ["heroku-redis"],
-  "buildpacks": [
-    {
-      "url": "heroku/python"
+  "build": {
+    "skip": true
+  },
+  "hooks": {
+    "prebuild": {
+      "commands": [
+        "echo 'build Dockerfile'",
+        "bash build_script"
+      ]
     }
-  ]
+  }
 }
