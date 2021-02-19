@@ -103,7 +103,7 @@ class CompaniesRanks(RedisClient):
             'start': start_index,
             'end': stop_index,
             'withscores': True,
-            'score_cast_func': float,
+            'score_cast_func': int,
         }
 
         if desc:
