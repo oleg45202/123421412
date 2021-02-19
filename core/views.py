@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 
 from .companies_redis import CompaniesRanks
 
@@ -25,6 +26,7 @@ class GetBySymbolCompaniesView(View):
         return HttpResponse(CompaniesRanks().get_ranks_by_symbols(symbols), status=200)
 
 
+@csrf_exempt
 class UpdateCompanyView(View):
     def patch(self, request):
         company = json.loads(request.body)
